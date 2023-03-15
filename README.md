@@ -13,6 +13,8 @@ You will need to setup a table per the database.sql.
 
 ## Starting Localhost
 
+
+In two separate terminal tabs
 ```
 npm run server
 npm run client
