@@ -27,7 +27,7 @@ function CreatureList () {
         <div>
             <h2>Creature List</h2>
             {
-                // This turns our array into a string
+                // This turns our array into a string, shows the object on the DOM
                 JSON.stringify(listOfCreatures)
             }
             <ul>
