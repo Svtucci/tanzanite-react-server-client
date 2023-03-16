@@ -4,6 +4,8 @@ import axios from 'axios';
 
 
 function CreatureList () {
+    const [creatureName, setCreatureName] = useState('');
+    const [creatureOrigin, setCreatureOrigin] = useState('');
     const [listOfCreatures, setListOfCreatures] = useState([]);
 
     const fetchCreatureList = () => {
@@ -22,14 +24,37 @@ function CreatureList () {
         fetchCreatureList();
     }, []); // Remember the empty array!!!! 
 
+
+    const submitForm = (e) => {
+        e.preventDefault();
+        axios.post('/creature', {
+            name: creatureName,
+            origin: creatureOrigin,
+        }).then((response) => {
+            setCreatureName('');
+            setCreatureOrigin('');
+            fetchCreatureList();
+        }).catch((error) => {
+            console.log(`Erorr in POST ${error}`)
+            alert('Something went wrong')
+        })
+    }
     // All components RETURN what you want them to display
     return (
         <div>
             <h2>Creature List</h2>
-            {
-                // This turns our array into a string, shows the object on the DOM
-                JSON.stringify(listOfCreatures)
-            }
+            <form onSubmit={submitForm}>
+                Name: 
+                <input type="text"
+                       value={creatureName}
+                       onChange={(e) => setCreatureName(e.target.value)} />
+                      <br />
+                Origin: 
+                <input type="text"
+                       value={creatureOrigin}
+                       onChange={(e) => setCreatureOrigin(e.target.value)} />
+            <input type="submit" />
+            </form>
             <ul>
                 {
                     listOfCreatures.map((creature) => (

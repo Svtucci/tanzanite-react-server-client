@@ -9,7 +9,7 @@ import CreatureList from '../CreatureList/CreatureList.jsx'
 import Header from '../Header/Header.jsx'
 import ClickCounter from '../ClickCounter/ClickCounter.jsx'
 import Name from '../Name/Name.jsx'
-
+import InputExample from '../InputExample/InputExample.jsx'
 
 // App is a component, REACT helps to modulize the project
 function App () {
@@ -20,6 +20,7 @@ function App () {
       <Header />
       <Name />
       <ClickCounter />
+      <InputExample />
       <CreatureList />
     </div>
   );
