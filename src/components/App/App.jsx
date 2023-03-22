@@ -14,13 +14,22 @@ import InputExample from '../InputExample/InputExample.jsx'
 // App is a component, REACT helps to modulize the project
 function App () {
 
+
+const [headerText, setHeaderText] = useState('Welcome to React!!!!');
+
+
   return (
     // This looks like HTML but is really JSX
     <div>
-      <Header />
-      <Name />
+      {/* HeaderTextProp is the name of our prop */}
+      {/* {headerText} is the value we are assigning to the prop */}
+      <Header headerTextProp={headerText} />
+
+      {/* <Name />
       <ClickCounter />
-      <InputExample />
+      <InputExample /> */}
+
+
       <CreatureList />
     </div>
   );
