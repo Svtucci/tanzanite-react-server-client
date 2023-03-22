@@ -1,6 +1,6 @@
+import axios from 'axios';
 
-
-function CreatureForm ({ creatureName, setCreatureName, creatureOrigin, setCreatureOrigin }) {
+function CreatureForm ({ creatureName, setCreatureName, creatureOrigin, setCreatureOrigin, fetchCreatureList }) {
     const submitForm = (e) => {
         e.preventDefault();
         axios.post('/creature', {

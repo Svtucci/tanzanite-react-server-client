@@ -34,6 +34,7 @@ function CreatureList () {
                 setCreatureName={setCreatureName}
                 creatureOrigin={creatureOrigin}
                 setCreatureOrigin={setCreatureOrigin}
+                fetchCreatureList={fetchCreatureList}
             />
 
             <h2>Creature List</h2>
