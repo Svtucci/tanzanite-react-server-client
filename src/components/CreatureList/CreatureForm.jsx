@@ -1,0 +1,38 @@
+
+
+function CreatureForm ({ creatureName, setCreatureName, creatureOrigin, setCreatureOrigin }) {
+    const submitForm = (e) => {
+        e.preventDefault();
+        axios.post('/creature', {
+            name: creatureName,
+            origin: creatureOrigin,
+        }).then((response) => {
+            setCreatureName('');
+            setCreatureOrigin('');
+            fetchCreatureList();
+        }).catch((error) => {
+            console.log(`Erorr in POST ${error}`)
+            alert('Something went wrong')
+        })
+    }
+
+
+    return (
+        <>
+            <form onSubmit={submitForm}>
+                Name: 
+                <input type="text"
+                       value={creatureName}
+                       onChange={(e) => setCreatureName(e.target.value)} />
+                      <br />
+                Origin: 
+                <input type="text"
+                       value={creatureOrigin}
+                       onChange={(e) => setCreatureOrigin(e.target.value)} />
+            <input type="submit" />
+            </form>
+        </>
+    )
+}
+
+export default CreatureForm; 

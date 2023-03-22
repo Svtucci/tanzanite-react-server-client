@@ -23,7 +23,17 @@ const [headerText, setHeaderText] = useState('Welcome to React!!!!');
     <div>
       {/* HeaderTextProp is the name of our prop */}
       {/* {headerText} is the value we are assigning to the prop */}
-      <Header headerTextProp={headerText} />
+      <Header 
+              textColor="salmon"
+              headerText={headerText} 
+              someOtherThing={'Cake'}
+       />
+       
+       {/* <Header 
+              textColor="limegreen"
+              headerText={'Hello!! This is a Prop'} 
+              someOtherThing={'Cake'}
+       /> */}
 
       {/* <Name />
       <ClickCounter />

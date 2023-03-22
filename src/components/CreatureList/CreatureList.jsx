@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'; 
 import axios from 'axios'; 
-
+import CreatureForm from './CreatureForm.jsx';
 
 
 function CreatureList () {
@@ -25,36 +25,19 @@ function CreatureList () {
     }, []); // Remember the empty array!!!! 
 
 
-    const submitForm = (e) => {
-        e.preventDefault();
-        axios.post('/creature', {
-            name: creatureName,
-            origin: creatureOrigin,
-        }).then((response) => {
-            setCreatureName('');
-            setCreatureOrigin('');
-            fetchCreatureList();
-        }).catch((error) => {
-            console.log(`Erorr in POST ${error}`)
-            alert('Something went wrong')
-        })
-    }
+    
     // All components RETURN what you want them to display
     return (
         <div>
+            <CreatureForm 
+                creatureName={creatureName}
+                setCreatureName={setCreatureName}
+                creatureOrigin={creatureOrigin}
+                setCreatureOrigin={setCreatureOrigin}
+            />
+
             <h2>Creature List</h2>
-            <form onSubmit={submitForm}>
-                Name: 
-                <input type="text"
-                       value={creatureName}
-                       onChange={(e) => setCreatureName(e.target.value)} />
-                      <br />
-                Origin: 
-                <input type="text"
-                       value={creatureOrigin}
-                       onChange={(e) => setCreatureOrigin(e.target.value)} />
-            <input type="submit" />
-            </form>
+            
             <ul>
                 {
                     listOfCreatures.map((creature) => (
