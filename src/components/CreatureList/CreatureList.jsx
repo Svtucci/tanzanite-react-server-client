@@ -24,8 +24,6 @@ function CreatureList () {
         fetchCreatureList();
     }, []); // Remember the empty array!!!! 
 
-
-    
     // All components RETURN what you want them to display
     return (
         <div>
@@ -40,12 +38,9 @@ function CreatureList () {
             <h2>Creature List</h2>
             
             <ul>
-                {
+                { // .map happens in our List Component
                     listOfCreatures.map((creature) => (
-                        // What we want to render 
-                        <li key={creature.id}>
-                            {creature.name} from {creature.origin}
-                        </li>
+                        
                     ))
                 }
             </ul>
