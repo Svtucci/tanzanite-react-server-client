@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'; 
 import axios from 'axios'; 
 import CreatureForm from './CreatureForm.jsx';
-
+import CreatureItem from './CreatureItem.jsx';
 
 function CreatureList () {
     const [creatureName, setCreatureName] = useState('');
@@ -40,7 +40,7 @@ function CreatureList () {
             <ul>
                 { // .map happens in our List Component
                     listOfCreatures.map((creature) => (
-                        
+                        <CreatureItem />
                     ))
                 }
             </ul>
