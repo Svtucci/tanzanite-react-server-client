@@ -40,7 +40,11 @@ function CreatureList () {
             <ul>
                 { // .map happens in our List Component
                     listOfCreatures.map((creature) => (
-                        <CreatureItem />
+                        <CreatureItem 
+                            key={creature.id} // Key must be inside of map here or else error
+                            creature={creature}
+                            fetchCreatureList={fetchCreatureList}
+                        />
                     ))
                 }
             </ul>
@@ -50,3 +54,30 @@ function CreatureList () {
 
 // All components must export 
 export default CreatureList;
+
+
+
+/*             <ul>
+                
+                    listOfCreatures.map((creature) => (
+                        <CreatureItem 
+                            key={creature.id} // Key must be inside of map here or else error
+                            creature={creature}
+                            CreatureName={creature.name}
+                        />
+                    ))
+                }
+            </ul> 
+            
+            CreatureItem({creature, creatureName})
+            
+                    li
+                        {creatureName} is from {creature.orign}
+            
+            
+            
+            */
+
+
+
+
